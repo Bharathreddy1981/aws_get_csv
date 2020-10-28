@@ -25,7 +25,7 @@ def read():
     #y = z.cursor()
 
     df=pd.read_sql_query("select * from student where studentname='" + str(image) + "'",con=z)
-    k=df.to_csv("anil.csv",index=False)
+    df.to_csv("anil.csv",index=False)
 
     print(df)
     #query = "select * from student where id='" + str(number) + "'"
@@ -37,7 +37,7 @@ def read():
     #for i in bha:
     #    k={"id":i[0],"studentname":i[1]," phone":i[2],"email":i[3],"city":i[4]}
 
-    return k
+    return 
 
 if __name__=="__main__":
     aws_insert_sql_read_csv.run(host='0.0.0.0')
