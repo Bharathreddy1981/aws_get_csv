@@ -8,7 +8,7 @@ import pandas as pd
 
 
 aws_insert_sql_read_csv = Flask(__name__)
-@aws_insert_sql_read_csv.route("/csv", methods=["POST"])
+@aws_insert_sql_read_csv.route("/csv", methods=["GET"])
 def read():
 
     jsondata=request.get_json()
@@ -37,7 +37,7 @@ def read():
     #for i in bha:
     #    k={"id":i[0],"studentname":i[1]," phone":i[2],"email":i[3],"city":i[4]}
 
-    return 
+    return {"url":df}
 
 if __name__=="__main__":
     aws_insert_sql_read_csv.run(host='0.0.0.0')
