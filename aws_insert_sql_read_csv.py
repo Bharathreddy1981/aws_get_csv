@@ -8,11 +8,11 @@ import pandas as pd
 
 
 aws_insert_sql_read_csv = Flask(__name__)
-@aws_insert_sql_read_csv.route("/csv", methods=["GET"])
-def read():
+@aws_insert_sql_read_csv.route("/csv/<value>", methods=["GET"])
+def read(value):
 
-    jsondata=request.get_json()
-    image=jsondata["image"]
+    #jsondata=request.get_json()
+    #image=jsondata["image"]
     #value=jsondata["image"].split('/')[-1]
     #print(value)
 
@@ -24,7 +24,7 @@ def read():
     )
     #y = z.cursor()
 
-    df=pd.read_sql_query("select * from student where studentname='" + str(image) + "'",con=z)
+    df=pd.read_sql_query("select * from student where studentname='" + str(value) + "'",con=z)
     df.to_csv("anil.csv",index=False)
 
     print(df)
