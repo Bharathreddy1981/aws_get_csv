@@ -76,7 +76,7 @@ def read(value):
     return jsonify({name: url})
 
 if __name__=="__main__":
-    aws_insert_sql_read_csv.run(debug=True)
+    aws_insert_sql_read_csv.run(host='0.0.0.0')
 
 
 
